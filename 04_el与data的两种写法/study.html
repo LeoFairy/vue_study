@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <h1>你好,{{name}}</h1>
+    </div>
+    <script>
+      /*   el的第二种写法：
+ const v = new Vue({
+  //  el:'#root',
+   data: {
+    name:'vue'
+   }
+   })
+   console.log(v);
+  //  v.$mount('#root')  // 使用$mount 来指定vue实例对应的容器
+    
+  setTimeout(() => {
+     v.$mount('#root') 
+  }, 1000);
+   */
+
+      //data的第二种写法： 函数式  不能写成箭头函数
+      new Vue({
+        el: "#root",
+        //还可以去掉冒号  去掉function
+        data: function () {
+          return {
+            name: "vue",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>

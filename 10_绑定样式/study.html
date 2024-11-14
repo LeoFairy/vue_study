@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绑定样式</title>
+    <style>
+      .basic {
+        width: 400px;
+        height: 100px;
+        border: 1px solid black;
+      }
+
+      .happy {
+        border: 4px solid red;
+        background-color: rgba(255, 255, 0, 0.644);
+        background: linear-gradient(30deg, yellow, pink, orange, yellow);
+      }
+      .sad {
+        border: 4px dashed rgb(2, 197, 2);
+        background-color: gray;
+      }
+      .normal {
+        background-color: skyblue;
+      }
+
+      .style1 {
+        background-color: yellowgreen;
+      }
+      .style2 {
+        font-size: 30px;
+        text-shadow: 2px 2px 10px red;
+      }
+      .style3 {
+        border-radius: 20px;
+      }
+    </style>
+    <script src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <!-- 绑定class样式 --字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+      <div class="basic normal" :class="mood" @click="changeMood">{{name}}</div>
+      <br /><br />
+      <!-- 绑定class样式 --数组写法，适用于：要绑定的样式个数不确定、名字也不确定 -->
+      <div class="basic" :class="classArr">{{name}}</div>
+
+      <!-- 绑定class样式 --对象写法，适用于：要绑定的样式个数确定、名字也确定 ,   但要动态决定用不用  -->
+      <div class="basic" :class="classObj">{{name}}</div>
+
+      <!-- ① style样式绑定： 对象写法 -->
+      <!--   错误的：  <div class="basic" :style="font-size:fontsize;">{{name}}</div> -->
+      <!-- style 动态  要写成对象， 名：值。  属性名不对 要把杠去掉， 杠后面要大写， -->
+      <!--  即： <div class="basic" :style="{fontSize: fontsize +'px'}">{{name}}</div> -->
+      <div class="basic" :style="styleObj">{{name}}</div>
+
+      <!-- ② style样式绑定： 数组写法 -->
+      <div class="basic" :style="[styleObj,styleObj2]">{{name}}</div>
+    </div>
+    <script>
+      new Vue({
+        el: "#root",
+        data: {
+          name: "vue",
+          mood: "normal",
+          classArr: ["style1", "style2", "style3"],
+          classObj: {
+            style1: true,
+            style2: false,
+          },
+          fontsize: 40,
+          styleObj: {
+            fontSize: 40 + "px",
+            color: "red",
+          },
+          styleObj2: {
+            backgroundColor: "orange",
+          },
+        },
+        methods: {
+          changeMood() {
+            const arr = ["happy", "sad", "normal"];
+            const index = Math.floor(Math.random() * 3); //生成0 1 2 随机
+            this.mood = arr[index];
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

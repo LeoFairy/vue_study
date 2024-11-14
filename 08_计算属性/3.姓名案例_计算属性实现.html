@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>姓名案例_计算属性实现</title>
+    <script src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      姓： <input type="text" v-model="firstName" /> <br /><br />
+      名：<input type="text" v-model="latsName" /><br /><br />
+      全名： <span> {{fullName}}</span>
+    </div>
+    <script>
+      new Vue({
+        el: "#root",
+        data: {
+          firstName: "张",
+          latsName: "三",
+        },
+        computed: {
+          fullName: {
+            //当有人读取fullName时，get就会调用,且返回值就作为fullName的值
+            // get什么时候调用？: 1.初次读取fullName时 。2. 所依赖的数据发生变化时
+            get() {
+              console.log("get被调用");
+              return this.firstName + "-" + this.latsName;
+            },
+            //当fullName被修改时，set就会被调用
+            set(value) {
+              console.log("set", value);
+              // 张-三   李-四
+              const arr = value.split("-");
+              this.firstName = arr[0];
+              this.latsName = arr[1];
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
