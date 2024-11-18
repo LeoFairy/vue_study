@@ -1063,5 +1063,3 @@ Vue中使用组件的三大步骤：
  书写标准： ![image-20241118110446897](C:/Users/11426/AppData/Roaming/Typora/typora-user-images/image-20241118110446897.png)
 
 
-
-![image-20241118161606034](https://gitee.com/xiaofangovo/image-storage-location/raw/master/images/image-20241118161606034.png)
