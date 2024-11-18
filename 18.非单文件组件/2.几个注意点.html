@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注意点</title>
+    <script src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h1>{{msg}}</h1>
+      <my-school></my-school>
+    </div>
+    <script>
+      //1. 定义组件
+      //简写： const s= { ....}
+      const school = Vue.extend({
+        template: `
+        <div>
+          <h2>学校名称：{{name}} </h2>
+          <h2>学校地址：{{address}}</h2>
+        </div>
+        `,
+        data() {
+          return {
+            name: "vue",
+            address: "北京",
+          };
+        },
+      });
+
+      //2. 注册组件
+      new Vue({
+        el: "#root",
+        data: {
+          msg: "欢迎学习",
+        },
+        components: {
+          "my-school": school,
+          /* MySchool 多个单词 首字母大写 这种得用在脚手架里面  */
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueComponent</title>
+    <script src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <school></school>
+      <hello></hello>
+    </div>
+    <script>
+      //定义school组件
+      const school = Vue.extend({
+        name: "school",
+        template: `
+        <div>
+          <h2>学校名称：{{name}} </h2>
+          <h2>学校地址：{{address}}</h2>
+          <button @click="showName">点我提示学校名</button>
+        </div>
+        `,
+        data() {
+          return {
+            name: "vue",
+            address: "北京",
+          };
+        },
+        methods: {
+          showName() {
+            // alert(this.name) ;   在组件中 this不是vm实例对象 而是component
+            console.log("showName", this);
+          },
+        },
+      });
+      //定义hello组件
+      const hello = Vue.extend({
+        template: `
+        <h2>{{msg}}</h2>
+        `,
+        data() {
+          return {
+            msg: "你好啊！",
+          };
+        },
+      });
+
+      new Vue({
+        el: "#root",
+        components: {
+          school,
+          hello,
+        },
+      });
+    </script>
+  </body>
+</html>
