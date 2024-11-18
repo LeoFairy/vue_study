@@ -1064,22 +1064,4 @@ Vue中使用组件的三大步骤：
 
 
 
-
-
-
-
-![](C:/Users/11426/AppData/Roaming/Typora/typora-user-images/image-20241118145558109.png)
-
-
-
-
-
-## 20. 脚手架基础知识
-
-
-
-![image-20241118150654276](C:/Users/11426/AppData/Roaming/Typora/typora-user-images/image-20241118150654276.png)
-
-![image-20241118150712234](C:/Users/11426/AppData/Roaming/Typora/typora-user-images/image-20241118150712234.png)
-
-![image-20241118150731922](C:/Users/11426/AppData/Roaming/Typora/typora-user-images/image-20241118150731922.png)
+![image-20241118161606034](https://gitee.com/xiaofangovo/image-storage-location/raw/master/images/image-20241118161606034.png)
